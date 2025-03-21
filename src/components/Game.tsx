@@ -2,6 +2,8 @@ import { useFrame } from "@react-three/fiber";
 import { useEffect, useState } from "react";
 import { useKeyboardControls } from "../hooks/useKeyboardControls";
 import { useGameStore } from "../store/gameStore";
+import CharacterHair from "./CharacterHair";
+import CharacterOutfit from "./CharacterOutfit";
 import CharacterSprite, { AnimationType } from "./CharacterSprite";
 
 const Game = () => {
@@ -264,6 +266,14 @@ const Game = () => {
             setAnimation(AnimationType.IDLE_RIGHT);
           }
         }}
+      />
+      <CharacterOutfit position={position} animation={currentAnimation} />
+      <CharacterHair
+        position={position}
+        scale={[1, 1, 1]}
+        rows={8}
+        cols={8}
+        animation={currentAnimation}
       />
     </>
   );
